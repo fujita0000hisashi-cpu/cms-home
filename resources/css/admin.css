@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+/* 管理画面共通 */
+
+.adminContentsArea {
+	display: flex;
+}
+
+.adminHeader {
+	background-color: #fff;
+	width: 100%;
+	padding: 5px 20px;
+}
+
+.rightContents {
+	background-color: #f5f9fc;
+	width: calc(100% - 170px);
+}
+
+.adminAside {
+	height: 100vh;
+	width: 170px;
+}
+
+.adminAside__nav {
+	font-size: 1.2rem;
+}
+
+.adminAside__nav ul {
+	margin: 10px;
+}
+
+.adminAside__nav ul li {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #fff;
+}
+
+.leftContents {
+	background-color: #88c8ac;
+	color: #fff;
+}
+
+.adminHeader {
+	text-align: end;
+}
+
+.contentsArea {
+	margin: 15px;
+}
+
+.contentsArea__title {
+  font-size: 2rem;
+	margin: 20px 0;
+}
+
+/* ハンバーガーメニュー */
+.header__hamburger {
+	display: flex;
+	justify-content: end;
+	margin: 10px;
+}
+.header__hamburger button {
+  width: 36px;
+}
+
+.hamburger {
+  background-color: transparent; /*buttonタグデフォルトスタイルを打ち消し*/
+  border-color: transparent; /*buttonタグデフォルトスタイルを打ち消し*/
+  z-index: 9999;
+}
+
+/* ハンバーガーメニューの線 */
+.hamburger span {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  position: relative;
+  transition: ease .4s; /*ハンバーガーメニュークリック時の三本線の動きを遅延*/
+  display: block;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  margin: 8px 0;
+}
+
+.hamburger span:nth-child(3) {
+  top: 0;
+}
+
+/* ハンバーガーメニュークリック後のスタイル */
+.header__nav.active {
+  transform: translateX(0);
+}
+
+.hamburger.active span:nth-child(1) {
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: -13px;
+  transform: rotate(-45deg);
+}
+
+/* login */
+
+.loginFormArea {
+	box-shadow: 2px 2px 7px 1px rgb(0 0 0 / 8%), -2px -2px 7px 1px rgb(0 0 0 / 8%);
+	max-width: 400px;
+	width: 90%;
+	margin: auto;
+	padding: 30px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.login {
+	position: relative;
+	height: 100vh;
+	padding: 20vh 0;
+}
+
+.loginInput {
+	border: solid 1px #cbcbcb;
+}
+
+.loginFormArea__title {
+	margin-bottom: 10px;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.loginItemBox {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.loginInput {
+	padding: 2px 5px;
+}
+
+.submitButton {
+	padding:  10px 0;
+  width: 100%;
+	margin: auto;
+	background-color: #88c8ac;
+	border: 2px #333 solid;
+	border-radius: 8px;
+	display: block;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.1rem;
+	text-align: center;
+}
+
+.errorMessage {
+  color: red;
+  display: block;
+  margin-top: 5px;
+}
+
+.contentsArea__content {
+	height: 90vh;
+	background-color: #fff;
+	font-size: 1.5rem;
+	box-shadow: 0 0 3px 0 gray;
+}
+
+.contentsArea__content ul {
+  padding: 40px 30px;
+}
+.contentsArea__content .registration {
+	color: #88C8AC;
+}

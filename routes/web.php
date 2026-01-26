@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,3 +15,7 @@ Route::get('/hello', function() {
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.show');
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+Route::view('/admin', 'admin.index')->name('admin.index');
