@@ -1,16 +1,13 @@
 @extends('layouts.admin_base')
 @section('title', 'アカウント一覧')
 @section('content')
-<div>
-    <h2 class="contentsArea__title">HOME</h2>
+<div class="contentsArea__header">
+    <h2 class="contentsArea__header__title">アカウント一覧</h2>
+    <ul class="contentsArea__header__btnArea">
+        <li><a href="#">新規登録</a></li>
+    </ul>
 </div>
 <div class="contentsArea__content">
-    <div class="contentsArea__content-inner">
-        <ul>
-            <li class="registration"><a href="#"></a></li>
-            <li><a href="#">アカウント一覧</a></li>
-        </ul>
-    </div>
     <div class="adminTebleArea">
         <table class="teble">
             <thead class="tebleThead">
