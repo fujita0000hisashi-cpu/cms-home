@@ -270,3 +270,20 @@
 .adminTebleArea .teble a.tableCreateLink:hover {
 	opacity: .7;
 }
+
+/* ブレッドクラム */
+ol.breadcrumb  {
+	margin: 0 auto;
+	padding: 5px 15px;
+	display: flex;
+}
+
+ol.breadcrumb li.breadcrumb-item a:hover {
+	opacity: .7;
+}
+
+ol.breadcrumb li:not(:first-child)::before {
+  content: '>'; /* セパレーター */
+  margin: 0 10px; /* 前後の余白 */
+  color: #333; /* セパレーターの色 */
+}

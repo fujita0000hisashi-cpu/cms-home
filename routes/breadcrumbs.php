@@ -1,11 +1,13 @@
 <?php
 
 use Diglactic\Breadcrumbs\Breadcrumbs;
-Breadcrumbs::for('admin', function ($trail) {
+use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+
+Breadcrumbs::for('admin', function (BreadcrumbTrail $trail) {
   $trail->push('Top', route('admin.index'));
 });
 
-Breadcrumbs::for('admin.users', function ($trail) {
+Breadcrumbs::for('admin.users', function ( BreadcrumbTrail $trail, $title) {
   $trail->parent('admin');
-  $trail->push('アカウント一覧', route('admin.users'));
+  $trail->push($title, route('admin.users'));
 });

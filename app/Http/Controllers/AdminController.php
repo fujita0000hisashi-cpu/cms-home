@@ -11,7 +11,7 @@ class AdminController extends Controller
   //   return view('admin.user', compact('user'));
   // }
   public function showTop () {
-    $title = '管理画面TOP';
+    $title = 'TOP';
     return view('admin.index', compact('title'));
   }
 }

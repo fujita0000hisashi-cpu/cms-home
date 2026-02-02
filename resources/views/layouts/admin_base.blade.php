@@ -13,11 +13,8 @@
             </div>
             <div class="rightContents">
                 @include('parts.header')
-                @include('parts.breadcrumbs')
                 <main class="adminMain">
-                    <div class="contentsArea">
-                        @yield('content') 
-                    </div>
+                    @yield('content')
                 </main>
             </div>
         </div>
