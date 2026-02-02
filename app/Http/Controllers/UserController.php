@@ -16,4 +16,9 @@ class UserController extends Controller
     $title = 'アカウント一覧';
     return view('admin.users', compact('users', 'title'));
   }
+
+  public function createUser() {
+    $title = 'アカウント新規登録';
+    return view('admin.users.create', compact('title'));
+  }
 }
