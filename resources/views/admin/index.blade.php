@@ -1,8 +1,8 @@
 @extends('layouts.admin_base')
-@section('title', '管理画面TOP')
+@section('title', $title)
 @section('content')
 <div class="contentsArea__header">
-    <h2 class="contentsArea__header__title">HOME</h2>
+    <h2 class="contentsArea__header__title">{{$title}}</h2>
 </div>
 <div class="contentsArea__content">
     <div class="contentsArea__content-inner">

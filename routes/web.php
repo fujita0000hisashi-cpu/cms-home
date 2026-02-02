@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LoginController;
@@ -19,7 +20,7 @@ Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-Route::view('/admin', 'admin.index')->name('admin.index');
+Route::get('/admin', [AdminController::class, 'showTop'])->name('admin.index');
 
 // Route::view('/users', 'admin.users')->name('admin.users');
-Route::get('/users/{status?}', [UserController::class, 'showUsers'])->name('adomin.users');
+Route::get('/users/{status?}', [UserController::class, 'showUsers'])->name('admin.users');

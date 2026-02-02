@@ -1,1 +1,1 @@
- {{ Breadcrumbs::render('admin') }}
+{{ Breadcrumbs::render('admin.users') }}
