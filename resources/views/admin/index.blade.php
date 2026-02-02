@@ -11,7 +11,7 @@
         <div class="contentsArea__content-inner">
             <ul>
                 <li class="registration"><a href="#">アカウント登録</a></li>
-                <li><a href="#">アカウント一覧</a></li>
+                <li><a href="/users">アカウント一覧</a></li>
             </ul>
         </div>
     </div>
