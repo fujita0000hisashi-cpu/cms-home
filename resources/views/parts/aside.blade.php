@@ -13,10 +13,10 @@
     <nav class="adminAside__nav" id="js-nav">
         <ul>
             <li>
-                <a href="#"><i class="fa-solid fa-house-chimney"></i>HOME</a>
+                <a href="/admin"><i class="fa-solid fa-house-chimney"></i>HOME</a>
             </li>
             <li>
-                <a href="#"><i class="fa-solid fa-envelopes-bulk"></i>アカウント一覧</a>
+                <a href="/users"><i class="fa-solid fa-envelopes-bulk"></i>アカウント一覧</a>
             </li>
         </ul>
     </nav>
