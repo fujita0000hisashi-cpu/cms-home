@@ -11,10 +11,10 @@
     </ul>
   </div>
   <div class="contentsArea__content">
-    <form action="{{ route('contact.confirm') }}" method="POST">
+    <form action="{{ route('admin.users.confirm') }}" method="POST">
 			@csrf
 			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-			<div class="contactItem">
+			<div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
 					<label class="" for="name">名前</label>
@@ -26,10 +26,10 @@
           @enderror
 				</div>
 			</div>
-      <div class="contactItem">
+      <div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
-					<label class="" for="name">フリガナ</label>
+					<label class="" for="name-kana">フリガナ</label>
 				</div>
 				<div class="inputItem">
 					<input type="text" id="name-kana" name="name-kana" value="{{ old('name-kana') }}" class="textInput" placeholder="例）ヤマダタロウ">
@@ -38,7 +38,7 @@
           @enderror
 				</div>
 			</div>
-      <div class="contactItem">
+      <div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
 					<label class="" for="mail">メールアドレス</label>
@@ -50,19 +50,19 @@
           @enderror
 				</div>
 			</div>
-      <div class="contactItem">
+      <div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
-					<label class="" for="mail">パスワード</label>
+					<label class="" for="password">パスワード</label>
 				</div>
 				<div class="inputItem">
 					<input type="password" id="password" name="password" value="{{ old('password') }}" class="textInput" placeholder="Password">
-					@error('mail')
+					@error('password')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
 				</div>
 			</div>
-			<div class="contactItem">
+			<div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
 					<label class="" for="phone">電話番号</label>
@@ -74,10 +74,10 @@
           @enderror
 				</div>
 			</div>
-      <div class="contactItem">
+      <div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
-					<label class="" for="phone">郵便番号</label>
+					<label class="" for="postcode">郵便番号</label>
 				</div>
 				<div class="inputItem">
 					<input type="text" id="postcode" name="postcode" value="{{ old('postcode') }}" class="textInput" placeholder="例）0000000">
@@ -86,7 +86,7 @@
           @enderror
 				</div>
 			</div>
-			<div class="contactItem">
+			<div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
 					<label class="label" for="prefecture">都道府県</label>
@@ -103,10 +103,10 @@
           @enderror
 				</div>
 			</div>
-      <div class="contactItem">
+      <div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
-					<label class="" for="addres">市町村</label>
+					<label class="" for="city">市町村</label>
 				</div>
 				<div class="inputItem">
 					<input type="text" id="city" name="city" value="{{ old('city') }}" class="textInput" placeholder="例）〇〇市〇〇区〇〇町">
@@ -115,7 +115,7 @@
           @enderror
 				</div>
 			</div>
-			<div class="contactItem">
+			<div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
 					<label class="" for="address_line1">番地・アパート名</label>
@@ -127,13 +127,13 @@
           @enderror
 				</div>
 			</div>
-			<div class="contactItem">
+			<div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
-					<label class="label" for="contact">備考欄</label>
+					<label class="label" for="memo">備考欄</label>
 				</div>
 				<div class="inputItem">
-					<textarea id="memo" name="memo" class="contactText"></textarea>
+					<textarea id="memo" name="memo" class="memoText">{{ old('memo') }}</textarea>
 					@error('memo')
             <span class="errorMessage">{{ $message }}</span>
           @enderror

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserController extends Controller
@@ -30,4 +31,21 @@ class UserController extends Controller
     ];
     return view('admin.users.create', compact('title', 'prefectures'));
   }
+
+  public function confirm(Request $request)
+	{
+		$validated = $request->validate([
+			'name'          => 'required|string|max:20',
+			'name-kana'     => 'required|string|max:20',
+      'mail'          => 'required|email',
+      'password'      => 'required|string|max:20',
+			'phone'         => 'required|regex:/^[0-9-]+$/',
+			'postcode'      => 'required|regex:/^[0-9]{7}$ /',
+			'prefecture'    => 'required',
+			'city'          => 'required|string',
+			'address_line1' => 'required|string',
+			'memo'       => 'required|string',
+		]);
+		return view('admin.users.confirm', compact('validated'));
+	}
 }
