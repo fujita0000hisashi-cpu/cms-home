@@ -29,11 +29,11 @@
       <div class="contentItem">
 				<div class="textItem">
 					<span class="required">必須</span>
-					<label class="" for="name-kana">フリガナ</label>
+					<label class="" for="name_kana">フリガナ</label>
 				</div>
 				<div class="inputItem">
-					<input type="text" id="name-kana" name="name-kana" value="{{ old('name-kana') }}" class="textInput" placeholder="例）ヤマダタロウ">
-					@error('name-kana')
+					<input type="text" id="name_kana" name="name_kana" value="{{ old('name_kana') }}" class="textInput" placeholder="例）ヤマダタロウ">
+					@error('name_kana')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
 				</div>

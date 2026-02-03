@@ -8,7 +8,7 @@
       <p class="dataContentItemP">名前:{{ $validated['name'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">フリガナ:{{ $validated['name-kana'] }}</p>
+      <p class="dataContentItemP">フリガナ:{{ $validated['name_kana'] }}</p>
     </div>
     <div class="dataContentItem">
       <p class="dataContentItemP">メールアドレス:{{ $validated['mail'] }}</p>
