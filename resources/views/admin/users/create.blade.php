@@ -95,7 +95,7 @@
 					<select id="prefecture" name="prefecture" class="select">
             <option value="">選択してください</option>
             @foreach ($prefectures as $key => $prefecture)
-              <option value="{{ $key }}">{{$prefecture}}</option>
+              <option value="{{ $key }}" {{ old("prefecture" === $key) }}>{{$prefecture}}</option>
             @endforeach
 					</select>
 					@error('prefecture')
