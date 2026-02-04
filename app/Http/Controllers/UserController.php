@@ -42,34 +42,18 @@ class UserController extends Controller
   }
 
   public function send (Request $request) {
-    // $user = new User();
-    // $user->name          = $request->name;
-    // $user->name_kana     = $request->name_kana;
-    // $user->mail          = $request->mail;
-    // $user->password      = $request->password;
-    // $user->phone         = $request->phone;
-    // $user->postcode      = $request->postcode;
-    // $user->prefecture    = $request->prefecture;
-    // $user->city          = $request->city;
-    // $user->address_line1 = $request->address_line1;
-    // $user->memo          = $request->memo;
-    // $user->save();
-
-    $user = $request->validate([
-      'name'          => 'required|string|max:20',
-      'name_kana'     => 'required|string|max:20',
-      'mail'          => 'required|email',
-      'password'      => 'required|string|max:20',
-      'phone'         => 'required|regex:/^[0-9-]+$/',
-      'postcode'      => 'required|regex:/^[0-9]{7}$/',
-      'prefecture'    => 'required',
-      'city'          => 'required|string',
-      'address_line1' => 'required|string',
-      'memo'          => 'required|string',
-    ]);
-
-// 
-    // return view('admin.users.send', ['user' => $user]);
-    return view('admin.users.send', compact('user'));
+    $user = new User();
+    $user->name          = $request->name;
+    $user->name_kana     = $request->name_kana;
+    $user->email         = $request->mail;
+    $user->password      = $request->password;
+    $user->phone         = $request->phone;
+    $user->zipcode      = $request->postcode;
+    $user->prefecture    = $request->prefecture;
+    $user->city          = $request->city;
+    $user->address = $request->address_line1;
+    $user->remarks          = $request->memo;
+    $user->save();
+    return view('admin.users.send', ['user' => $user]);
   }
 }
