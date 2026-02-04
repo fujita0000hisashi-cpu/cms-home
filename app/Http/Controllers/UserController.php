@@ -24,22 +24,52 @@ class UserController extends Controller
     return view('admin.users.create', compact('title', 'prefectures'));
   }
 
-  public function confirm(Request $request)
-	{
-		$validated = $request->validate([
-			'name'          => 'required|string|max:20',
-			'name_kana'     => 'required|string|max:20',
+  public function confirm (Request $request) {
+    $validated = $request->validate([
+      'name'          => 'required|string|max:20',
+      'name_kana'     => 'required|string|max:20',
       'mail'          => 'required|email',
       'password'      => 'required|string|max:20',
-			'phone'         => 'required|regex:/^[0-9-]+$/',
-			'postcode'      => 'required|regex:/^[0-9]{7}$/',
-			'prefecture'    => 'required',
-			'city'          => 'required|string',
-			'address_line1' => 'required|string',
-			'memo'          => 'required|string',
-		]);
+      'phone'         => 'required|regex:/^[0-9-]+$/',
+      'postcode'      => 'required|regex:/^[0-9]{7}$/',
+      'prefecture'    => 'required',
+      'city'          => 'required|string',
+      'address_line1' => 'required|string',
+      'memo'          => 'required|string',
+    ]);
     $selectedPrefecture = config('prefectures')[$validated['prefecture']];
-		return view('admin.users.confirm', compact('validated', 'selectedPrefecture'));
-	}
-  
+    return view('admin.users.confirm', compact('validated', 'selectedPrefecture'));
+  }
+
+  public function send (Request $request) {
+    // $user = new User();
+    // $user->name          = $request->name;
+    // $user->name_kana     = $request->name_kana;
+    // $user->mail          = $request->mail;
+    // $user->password      = $request->password;
+    // $user->phone         = $request->phone;
+    // $user->postcode      = $request->postcode;
+    // $user->prefecture    = $request->prefecture;
+    // $user->city          = $request->city;
+    // $user->address_line1 = $request->address_line1;
+    // $user->memo          = $request->memo;
+    // $user->save();
+
+    $user = $request->validate([
+      'name'          => 'required|string|max:20',
+      'name_kana'     => 'required|string|max:20',
+      'mail'          => 'required|email',
+      'password'      => 'required|string|max:20',
+      'phone'         => 'required|regex:/^[0-9-]+$/',
+      'postcode'      => 'required|regex:/^[0-9]{7}$/',
+      'prefecture'    => 'required',
+      'city'          => 'required|string',
+      'address_line1' => 'required|string',
+      'memo'          => 'required|string',
+    ]);
+
+// 
+    // return view('admin.users.send', ['user' => $user]);
+    return view('admin.users.send', compact('user'));
+  }
 }

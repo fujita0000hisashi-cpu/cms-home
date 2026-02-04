@@ -25,5 +25,5 @@ Route::get('/admin', [AdminController::class, 'showTop'])->name('admin.index');
 // Route::view('/users', 'admin.users')->name('admin.users');
 Route::get('/users/create', [UserController::class, 'createUser'])->name('admin.users.create');
 Route::post('/users/confirm', [UserController::class, 'confirm'])->name('admin.users.confirm');
-Route::post('/users/send', [ContactController::class, 'send'])->name('admin.users.send');
+Route::post('/users/send', [UserController::class, 'send'])->name('admin.users.send');
 Route::get('/users/{status?}', [UserController::class, 'showUsers'])->name('admin.users');
