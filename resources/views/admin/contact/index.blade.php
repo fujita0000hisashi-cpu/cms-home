@@ -20,13 +20,13 @@
                     </tr>
                 </thead>
                 <tbody class="tebleTbody">
-                    @foreach($users as $user)
+                    @foreach($contacts as $contact)
                     <tr>
                         <td><a href="#" class="tableCreateLink">編集</a></td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->status }}</td>
-                        <td>{{ $user->company }}</td>
-                        <td>{{ $user->phone }}</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->status }}</td>
+                        <td>{{ $contact->company }}</td>
+                        <td>{{ $contact->phone }}</td>
                     </tr>
                     @endforeach
                 </tbody>
