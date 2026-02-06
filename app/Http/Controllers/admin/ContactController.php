@@ -16,6 +16,12 @@ class ContactController extends Controller
 		return view('admin.contact.index', compact('contacts', 'title'));
 	}
 
+	public function edit($id) {
+		$title = 'お問い合わせ詳細';
+		$contact = Contact::findOrFail($id);
+		return view('admin.contact.edit', compact('contact', 'title'));
+	}
+
 	public function confirm(Request $request)
 	{
 		$validated = $request->validate([

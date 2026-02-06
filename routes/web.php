@@ -23,6 +23,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.sho
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::get('/admin', [AdminController::class, 'showTop'])->name('admin.index');
 Route::get('/admin/contact', [AdminContactController::class, 'showContacts'])->name('admin.contact.index');
+Route::get('/admin/contact/{id}/edit', [AdminContactController::class, 'edit'])->name('admin.contact.edit');
 
 // Route::view('/users', 'admin.users')->name('admin.users');
 Route::get('/users/create', [UserController::class, 'createUser'])->name('admin.users.create');
