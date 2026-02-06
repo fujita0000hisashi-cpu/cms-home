@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\contact\ContactController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +21,7 @@ Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::get('/admin', [AdminController::class, 'showTop'])->name('admin.index');
+Route::get('/admin/contact', [AdminController::class, 'showTop'])->name('admin.index');
 
 // Route::view('/users', 'admin.users')->name('admin.users');
 Route::get('/users/create', [UserController::class, 'createUser'])->name('admin.users.create');
