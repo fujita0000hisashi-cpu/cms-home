@@ -27,8 +27,14 @@ class ContactController extends Controller
 	{
 		$validated = $request->validate(([
 			'status' => ['required'],
-			'memo' => ['nullable', 'string']
+			'memo' => ['sometimes', 'nullable', 'string']
 		]));
+
+		// 空文字送信時に Laravel の ConvertEmptyStringsToNul で null になる。
+		// これを防ぐため memo は null を ''に変換する。
+		if(array_key_exists('memo', $validated)) {
+			$validated['memo'] = $validated['memo'] ?? '';
+		}
 		$contact->update($validated);
 
     return back()->with('success', '更新が完了しました。');
