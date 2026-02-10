@@ -28,7 +28,8 @@ class UserController extends Controller
     $validated = $request->validate([
       'name'          => 'required|string|max:20',
       'name_kana'     => 'required|string|max:20',
-      'mail'          => 'required|email',
+      // 'mail'          => 'required|email',
+      'mail'          => ['required', 'email', 'unique:users,email'],
       'password'      => 'required|string|max:20',
       'phone'         => 'required|regex:/^[0-9-]+$/',
       'postcode'      => 'required|regex:/^[0-9]{7}$/',
