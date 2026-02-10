@@ -19,7 +19,7 @@
 
 .adminAside {
 	height: 100vh;
-	width: 170px;
+	width: 190px;
 }
 
 .adminAside__nav {
@@ -27,11 +27,11 @@
 }
 
 .adminAside__nav ul {
-	margin: 10px;
+	
 }
 
 .adminAside__nav ul li {
-	padding-bottom: 5px;
+	padding: 10px;
 	border-bottom: 1px solid #fff;
 }
 
