@@ -9,15 +9,15 @@
   </div>
   <div class="contentsArea__content">
     <section class="admin-contact">
-      <form id="editForm" method="POST" action="{{ route('admin.contact.update', $inquiry->id) }}">
+      <form id="editForm" method="POST" action="{{ route('admin.contact.update', $contact->id) }}">
         @csrf
         @method('PUT')
         <div class="dataContentItem">
           <h3>ステータス</h3>
           <select id="status" name="status" class="select">
-            <option value="未対応">未対応</option>
-            <option value="対応中">対応中</option>
-            <option value="完了">対応済</option>
+            <option value="未対応" @selected($contact->status === '未対応' || '')>未対応</option>
+            <option value="対応中" @selected($contact->status === '対応中')>対応中</option>
+            <option value="対応済" @selected($contact->status === '対応済')>対応済</option>
           </select>
           <!-- @error('status')
             <span class="errorMessage">{{ $message }}</span>
@@ -29,7 +29,7 @@
         </div>
         <div class="dataContentItem">
           <h3>備考欄</h3>
-          <textarea id="memo" name="memo" class="textArea"></textarea>
+          <textarea id="memo" name="memo" class="textArea">{{ $contact->memo }}</textarea>
           <!-- @error('memo')
             <span class="errorMessage">{{ $message }}</span>
             @enderror -->
