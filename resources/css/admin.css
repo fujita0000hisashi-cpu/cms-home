@@ -355,3 +355,137 @@ ol.breadcrumb li:not(:first-child)::before {
   width: 100%;
   height: 200px;
 }
+
+/* admin-contact */
+
+.admin-contact {}
+
+.admin-contact h3 {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.admin-contact .select {
+  border: 1px #888b91 solid;
+	width: 100px;
+}
+
+.admin-contact .textArea {
+	padding: 5px;
+  border: 1px #888b91 solid;
+	width: 50%;
+	min-height: 150px;
+}
+
+.admin-contact .errorMessage {
+  color: red;
+  display: block;
+  margin-top: 5px;
+}
+
+.admin-contact .dataContentItem {
+  border-top: 1px #eaedf2 solid;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ダイアログ */
+.c-dialog {
+	width: min(720px, calc(100vw - 32px));
+	border: none;
+	padding: 0;
+	border-radius: 16px;
+	box-shadow: 0 24px 60px rgba(0, 0 ,0 .25);
+	overflow: hidden;
+	background: #fff;
+}
+.c-dialog::backdrop {
+	background: rgba(0, 0, 0, .45);
+	backdrop-filter: blur(2px);
+}
+
+.c-dialog[open] {
+	animation: dialog-pop .12s ease-out;
+}
+@keyframes dialog-pop {
+	from {
+		transform: translateY(6px);
+		opacity: .7;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.c-dialog__header {
+	padding: 16px 20px;
+	border-bottom: 1px solid #e9e9e9;
+	background: #fafafa;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.c-dialog__body {
+	padding: 18px 20px;
+}
+
+.c-kv {
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	gap: 10px 14px;
+	align-items: start;
+}
+
+.c-kv__key {
+	color: #555;
+	font-size: 13px;
+}
+
+.c-kv__val {
+	font-size: 14px;
+	color:#111;
+}
+
+.c-kv__pre {
+	margin: 0;
+	white-space: pre-wrap;
+	word-break: break-word;
+	background: #f7f7f7;
+	border: 1px solid #eee;
+	border-radius: 12px;
+	padding: 10px 12px;
+}
+
+.c-dialog__footer {
+	padding: 14px 20px;
+	border-top: 1px solid #e9e9e9;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	background: #fff;
+}
+
+
+.c-btn {
+	border-radius: 12px;
+	padding: 10px 14px;
+	border: 1px solid #ddd;
+	background: #fff;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.c-btn--primary {
+	border-color: transparent;
+	background: #111;
+	color: #fff;
+}
+
+.c-btn:disabled {
+	opacity: .6;
+	cursor: not-allowed;
+}

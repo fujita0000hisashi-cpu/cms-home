@@ -2,7 +2,7 @@
 @section('title', $title)
 @section('content')
 
-{{ Breadcrumbs::render('admin.users', $title) }}
+{{ Breadcrumbs::render('admin.contact') }}
 <div class="contentsArea">
     <div class="contentsArea__header">
         <h2 class="contentsArea__header__title">{{$title}}</h2>
@@ -22,7 +22,8 @@
                 <tbody class="tebleTbody">
                     @foreach($contacts as $contact)
                     <tr>
-                        <td><a href="#" class="tableCreateLink">編集</a></td>
+                        
+                        <td><a href="/admin/contact/{{$contact->id}}/edit" class="tableCreateLink">編集</a></td>
                         <td>{{ $contact->name }}</td>
                         <td>{{ $contact->status }}</td>
                         <td>{{ $contact->company }}</td>
