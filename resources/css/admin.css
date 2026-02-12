@@ -205,12 +205,19 @@
 	box-shadow: 0 0 3px 0 gray;
 }
 
-.contentsArea__content ul {
+.contentsArea__content-inner {
   padding: 40px 30px;
 	font-size: 1.5rem;
+	display: flex;
+	gap: 20px;
 }
-.contentsArea__content .registration {
-	color: #88C8AC;
+
+.contentsArea__content__title {
+  color: #88C8AC;
+}
+
+.contentsArea__content__link {
+	font-size: 1.2rem;
 }
 
 /* ユーザー一覧ページ */

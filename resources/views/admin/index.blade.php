@@ -9,10 +9,14 @@
     </div>
     <div class="contentsArea__content">
         <div class="contentsArea__content-inner">
-            <ul>
-                <li class="registration"><a href="#">アカウント登録</a></li>
-                <li><a href="/users">アカウント一覧</a></li>
-            </ul>
+            <div>
+                <h3 class="contentsArea__content__title">アカウント登録</h3>
+                <div class="contentsArea__content__link"><a href="/users">アカウント一覧</a></div>
+            </div>
+            <div>
+                <h3 class="contentsArea__content__title">お問い合わせ情報</h3>
+                <div class="contentsArea__content__link"><a href="/admin/contact">お問い合わせ一覧</a></div>
+            </div>
         </div>
     </div>
 </div>
