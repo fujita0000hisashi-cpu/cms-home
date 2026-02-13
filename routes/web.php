@@ -29,13 +29,16 @@ Route::get('/admin/contact/{id}/edit', [AdminContactController::class, 'edit'])-
 Route::put('/admin/{contact}', [AdminContactController::class, 'update'])->name('admin.contact.update');
 
 // ユーザー登録
-// 新規
-Route::get('/users/create', [UserController::class, 'createUser'])->name('admin.users.create');
-Route::post('/users/confirm', [UserController::class, 'confirm'])->name('admin.users.confirm');
-Route::post('/users/send', [UserController::class, 'send'])->name('admin.users.send');
+// 登録
+Route::get('admin/users/create', [UserController::class, 'createUser'])->name('admin.users.create');
+Route::get('admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
 
-// 編集
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+// 確認(共通)
+Route::post('admin/users/confirm', [UserController::class, 'confirm'])->name('admin.users.confirm');
+
+// 確定(保存)
+Route::post('admin/users/send', [UserController::class, 'send'])->name('admin.users.send');
+
 
 // ユーザー一覧
-Route::get('/users/{status?}', [UserController::class, 'showUsers'])->name('admin.users');
+Route::get('admin/users/{status?}', [UserController::class, 'showUsers'])->name('admin.users');

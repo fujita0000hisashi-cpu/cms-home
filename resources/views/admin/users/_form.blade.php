@@ -4,7 +4,7 @@
     <label class="" for="name">名前</label>
   </div>
   <div class="inputItem">
-    <input type="text" id="name" name="name" value="{{ old('name', $user?->email) }}" class="textInput" placeholder="例）山田太郎">
+    <input type="text" id="name" name="name" value="{{ old('name', $user?->name) }}" class="textInput" placeholder="例）山田太郎">
     @error('name')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
@@ -28,7 +28,7 @@
     <label class="" for="mail">メールアドレス</label>
   </div>
   <div class="inputItem">
-    <input type="email" id="mail" name="mail" value="{{ old('mail', $user?->mail) }}" class="textInput" placeholder="例）example@gmail.com">
+    <input type="email" id="mail" name="mail" value="{{ old('mail', $user?->email) }}" class="textInput" placeholder="例）example@gmail.com">
     @error('mail')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
@@ -64,7 +64,7 @@
     <label class="" for="postcode">郵便番号</label>
   </div>
   <div class="inputItem">
-    <input type="text" id="postcode" name="postcode" value="{{ old('postcode', $user?->postcode) }}" class="textInput" placeholder="例）0000000">
+    <input type="text" id="postcode" name="postcode" value="{{ old('postcode', $user?->zipcode) }}" class="textInput" placeholder="例）0000000">
     @error('postcode')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
@@ -105,7 +105,7 @@
     <label class="" for="address_line1">番地・アパート名</label>
   </div>
   <div class="inputItem">
-    <input type="text" id="address_line1" name="address_line1" value="{{ old('address_line1', $user?->address_line1) }}" class="textInput" placeholder="例）〇〇丁目〇〇-〇〇 〇〇アパート">
+    <input type="text" id="address_line1" name="address_line1" value="{{ old('address_line1', $user?->zipcode) }}" class="textInput" placeholder="例）〇〇丁目〇〇-〇〇 〇〇アパート">
     @error('address_line1')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
@@ -117,7 +117,7 @@
     <label class="label" for="memo">備考欄</label>
   </div>
   <div class="inputItem">
-    <textarea id="memo" name="memo" class="memoText">{{ old('memo', $user?->memo) }}</textarea>
+    <textarea id="memo" name="memo" class="memoText">{{ old('memo', $user?->remarks) }}</textarea>
     @error('memo')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
