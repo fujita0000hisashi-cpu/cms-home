@@ -28,7 +28,7 @@
                     @foreach($users as $user)
                     <tr>
                         
-                        <td><a href="#" class="tableCreateLink">編集</a></td>
+                        <td><a href="users/{{ $user->id }}/edit" class="tableCreateLink">編集</a></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>

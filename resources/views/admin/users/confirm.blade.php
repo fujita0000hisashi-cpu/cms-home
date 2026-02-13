@@ -5,39 +5,39 @@
 <section class="confirm">
   <div class="contactMainBox">
     <div class="dataContentItem">
-      <p class="dataContentItemP">名前:{{ $validated['name'] }}</p>
+      <p class="dataContentItemP">名前:{{ $inputs['name'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">フリガナ:{{ $validated['name_kana'] }}</p>
+      <p class="dataContentItemP">フリガナ:{{ $inputs['name_kana'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">メールアドレス:{{ $validated['mail'] }}</p>
+      <p class="dataContentItemP">メールアドレス:{{ $inputs['mail'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">パスワード:{{ $validated['password'] }}</p>
+      <p class="dataContentItemP">パスワード:{{ $inputs['password'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">電話番号:{{ $validated['phone'] }}</p>
+      <p class="dataContentItemP">電話番号:{{ $inputs['phone'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">郵便番号:{{ $validated['postcode'] }}</p>
+      <p class="dataContentItemP">郵便番号:{{ $inputs['postcode'] }}</p>
     </div>
     <div class="dataContentItem">
       <p class="dataContentItemP">都道府県:{{ $selectedPrefecture }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">市町村:{{ $validated['city'] }}</p>
+      <p class="dataContentItemP">市町村:{{ $inputs['city'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">番地・アパート名:{{ $validated['address_line1'] }}</p>
+      <p class="dataContentItemP">番地・アパート名:{{ $inputs['address_line1'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">備考欄:{{ $validated['memo'] }}</p>
+      <p class="dataContentItemP">備考欄:{{ $inputs['memo'] }}</p>
     </div>
     <form action="{{ route('admin.users.send') }}" method="POST">
       @csrf
       <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-      @foreach ($validated as $key => $value)
+      @foreach ($inputs as $key => $value)
         <input type="hidden" name="{{ $key }}" value="{{ $value }}">
       @endforeach
       <button type="submit" class="submitButton">送信する</button>

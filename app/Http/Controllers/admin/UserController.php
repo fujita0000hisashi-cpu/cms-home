@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Models\User;
 
 class UserController extends Controller
@@ -25,7 +26,10 @@ class UserController extends Controller
   }
 
   public function confirm (Request $request) {
-    $validated = $request->validate([
+    $mode = $request->input('mode');
+    $userId = $request->input('user_id');
+    $rules = [
+      'mode' => ['required', Rule::in(['create', 'edit'])],
       'name'          => 'required|string|max:20',
       'name_kana'     => 'required|string|max:20',
       // 'mail'          => 'required|email',
@@ -37,9 +41,30 @@ class UserController extends Controller
       'city'          => 'required|string',
       'address_line1' => 'required|string',
       'memo'          => 'required|string',
-    ]);
+    ];
+    if($mode === "create") {
+      $rules['email'][] = Rule::unique('users', 'mail');
+    } else {
+      // editの時はid必須
+      $rules['user_id'] = ['required', 'integer', 'exists:users,id'];
+      $rules['email'] = Rule::unique('users', 'email')->ignore($userId);
+    }
+    $validated = $request->validate($rules);
+        
     $selectedPrefecture = config('prefectures')[$validated['prefecture']];
-    return view('admin.users.confirm', compact('validated', 'selectedPrefecture'));
+
+  // confirm から「戻る」先 (create or edit)
+  $backRoute = ($validated['mode'] === 'create')
+    ? route('admin.users.create')
+    : route('admin.users.edit', ['id' => $validated['user_id']]);
+
+    // return view('admin.users.confirm', compact('validated', 'selectedPrefecture'));
+    return view('admin.users.confirm', [
+      'inputs' => $validated,
+      'backRoute' => $backRoute,
+      'selectedPrefecture' => $selectedPrefecture
+    ]);
+
   }
 
   public function send (Request $request) {
@@ -56,5 +81,12 @@ class UserController extends Controller
     $user->remarks          = $request->memo;
     $user->save();
     return view('admin.users.send', ['user' => $user]);
+  }
+
+  public function edit($id) {
+		$user = User::findOrFail($id);
+    $title = 'アカウント編集';
+    $prefectures = config('prefectures');
+    return view('admin.users.edit', compact('title', 'prefectures', 'user'));
   }
 }

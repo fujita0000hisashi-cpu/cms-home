@@ -35,7 +35,7 @@ Route::post('/users/confirm', [UserController::class, 'confirm'])->name('admin.u
 Route::post('/users/send', [UserController::class, 'send'])->name('admin.users.send');
 
 // 編集
-// Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
 
 // ユーザー一覧
 Route::get('/users/{status?}', [UserController::class, 'showUsers'])->name('admin.users');
