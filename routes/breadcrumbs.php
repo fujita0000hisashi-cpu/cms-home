@@ -9,7 +9,6 @@ Breadcrumbs::for('admin', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
   $trail->parent('admin');
-  // $trail->push($title, route('admin.users'));
   $trail->push('アカウント一覧', route('admin.users'));
 });
 
