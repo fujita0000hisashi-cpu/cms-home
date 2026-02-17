@@ -29,6 +29,9 @@ Route::get('/admin/contact/{id}/edit', [AdminContactController::class, 'edit'])-
 Route::put('/admin/{contact}', [AdminContactController::class, 'update'])->name('admin.contact.update');
 
 // ユーザー登録
+// 一覧
+Route::get('admin/users/', [UserController::class, 'showUsers'])->name('admin.users');
+
 // 登録
 Route::get('admin/users/create', [UserController::class, 'createUser'])->name('admin.users.create');
 Route::get('admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
@@ -37,8 +40,9 @@ Route::get('admin/users/{id}/edit', [UserController::class, 'edit'])->name('admi
 Route::post('admin/users/confirm', [UserController::class, 'confirm'])->name('admin.users.confirm');
 
 // 確定(保存)
-Route::post('admin/users/send', [UserController::class, 'send'])->name('admin.users.send');
+Route::put('admin/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
+Route::post('admin/users', [UserController::class, 'store'])->name('admin.users.store');
+
+Route::get('admin/users/send/{id}', [UserController::class, 'send'])->name('admin.users.send');
 
 
-// ユーザー一覧
-Route::get('admin/users/{status?}', [UserController::class, 'showUsers'])->name('admin.users');

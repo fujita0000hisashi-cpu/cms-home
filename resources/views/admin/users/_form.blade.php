@@ -25,10 +25,10 @@
 <div class="contentItem">
   <div class="textItem">
     <span class="required">必須</span>
-    <label class="" for="mail">メールアドレス</label>
+    <label class="" for="email">メールアドレス</label>
   </div>
   <div class="inputItem">
-    <input type="email" id="mail" name="mail" value="{{ old('mail', $user?->email) }}" class="textInput" placeholder="例）example@gmail.com">
+    <input type="email" id="email" name="email" value="{{ old('mail', $user?->email) }}" class="textInput" placeholder="例）example@gmail.com">
     @error('mail')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
@@ -61,11 +61,11 @@
 <div class="contentItem">
   <div class="textItem">
     <span class="required">必須</span>
-    <label class="" for="postcode">郵便番号</label>
+    <label class="" for="zipcode">郵便番号</label>
   </div>
   <div class="inputItem">
-    <input type="text" id="postcode" name="postcode" value="{{ old('postcode', $user?->zipcode) }}" class="textInput" placeholder="例）0000000">
-    @error('postcode')
+    <input type="text" id="zipcode" name="zipcode" value="{{ old('zipcode', $user?->zipcode) }}" class="textInput" placeholder="例）0000000">
+    @error('zipcode')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
   </div>
@@ -78,8 +78,8 @@
   <div class="inputItem">
     <select id="prefecture" name="prefecture" class="select">
       <option value="">選択してください</option>
-      @foreach ($prefectures as $key => $prefecture)
-      <option value="{{ $key }}" @selected(old('prefecture', $user?->prefecture) == $key) >{{$prefecture}}</option>
+      @foreach ($prefectures as $no => $label)
+      <option value="{{ $no }}" @selected(old('prefecture', $user?->prefecture) == $no) >{{$label}}</option>
       @endforeach
     </select>
     @error('prefecture')
@@ -102,11 +102,11 @@
 <div class="contentItem">
   <div class="textItem">
     <span class="required">必須</span>
-    <label class="" for="address_line1">番地・アパート名</label>
+    <label class="" for="address">番地・アパート名</label>
   </div>
   <div class="inputItem">
-    <input type="text" id="address_line1" name="address_line1" value="{{ old('address_line1', $user?->zipcode) }}" class="textInput" placeholder="例）〇〇丁目〇〇-〇〇 〇〇アパート">
-    @error('address_line1')
+    <input type="text" id="address" name="address" value="{{ old('address', $user?->zipcode) }}" class="textInput" placeholder="例）〇〇丁目〇〇-〇〇 〇〇アパート">
+    @error('address')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
   </div>
@@ -114,10 +114,10 @@
 <div class="contentItem">
   <div class="textItem">
     <span class="required">必須</span>
-    <label class="label" for="memo">備考欄</label>
+    <label class="label" for="remarks">備考欄</label>
   </div>
   <div class="inputItem">
-    <textarea id="memo" name="memo" class="memoText">{{ old('memo', $user?->remarks) }}</textarea>
+    <textarea id="remarks" name="remarks" class="memoText">{{ old('memo', $user?->remarks) }}</textarea>
     @error('memo')
     <span class="errorMessage">{{ $message }}</span>
     @enderror
