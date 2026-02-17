@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
 	public function showContacts()
 	{
-		$contacts = Contact::paginate(2);
+		$contacts = Contact::paginate(5);
     $title = 'お問い合わせ一覧';
 		return view('admin.contact.index', compact('contacts', 'title'));
 	}

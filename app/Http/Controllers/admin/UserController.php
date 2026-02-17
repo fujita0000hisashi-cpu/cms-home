@@ -12,7 +12,7 @@ class UserController extends Controller
 {
   public function showUsers () {
     $title = 'アカウント一覧';
-    $users = User::All();
+    $users = User::paginate(5);
     return view('admin.users', compact('users', 'title'));
   }
 
