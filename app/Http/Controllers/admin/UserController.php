@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-  // public function showUsers ($status = 'active') {
-  //   $user = User::whereStatus($status)->get();
-  //   return view('admin.user', compact('user'));
-  // }
   public function showUsers () {
     $title = 'アカウント一覧';
     $users = User::All();
@@ -58,7 +54,6 @@ class UserController extends Controller
       ? route('admin.users.create')
       : route('admin.users.edit', ['id' => $validated['user_id']]);
     
-    // return view('admin.users.confirm', compact('validated', 'selectedPrefecture'));
     return view('admin.users.confirm', [
       'inputs' => $validated,
       'backRoute' => $backRoute,
