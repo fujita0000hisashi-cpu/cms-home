@@ -39,6 +39,9 @@ Route::get('admin/users/{id}/edit', [UserController::class, 'edit'])->name('admi
 // 確認(共通)
 Route::post('admin/users/confirm', [UserController::class, 'confirm'])->name('admin.users.confirm');
 
+// 戻るボタン
+Route::post('admin/users/back', [UserController::class, 'back'])->name('admin.users.back');
+
 // 確定(保存)
 Route::put('admin/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
 Route::post('admin/users', [UserController::class, 'store'])->name('admin.users.store');

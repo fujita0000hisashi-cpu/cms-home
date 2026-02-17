@@ -34,7 +34,7 @@
     <div class="dataContentItem">
       <p class="dataContentItemP">備考欄:{{ $inputs['remarks'] }}</p>
     </div>
-    @if($inputs["mode"] === "create")
+    @if(($inputs["mode"] ?? '') === "create")
       <form action="{{ route('admin.users.store') }}" method="POST">
         @csrf
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -43,7 +43,7 @@
         @endforeach
         <button type="submit" class="submitButton">登録する</button>
       </form>
-    @else
+    @elseif(($inputs["mode"] ?? '') === "edit")
       <form action="{{ route('admin.users.update', ['id' => $inputs['user_id']]) }}" method="POST">
         @csrf
         @method('PUT')
@@ -53,7 +53,17 @@
         @endforeach
         <button type="submit" class="submitButton">更新する</button>
       </form>
+    @else
+      <p style="color: red;">modeが不正です。お手数ですが、入力画面からやり直しをお願いいたします。</p>
     @endif
+
+    <form action="{{ route('admin.users.back') }}" method="POST">
+      @csrf
+      @foreach ($inputs as $key => $value)
+        @continue(in_array($key, ['password_confirmation'], true))
+        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+      @endforeach
+    </form>
     <button type="button" class="submitButton" onclick="history.back()">戻る</button>
   </div>
 </section>

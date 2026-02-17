@@ -138,4 +138,20 @@ class UserController extends Controller
       ->with('status', '更新しました。');
 
   }
+
+  public function back(Request $request) {
+    $mode = $request->input('mode');
+
+    if ($mode === 'create') {
+      return redirect()
+        ->route('admin.users.create')
+        ->withInput($request->except('_token'));
+    }
+
+    // edit
+    $id = $request->input('user_id');
+    return redirect()
+      ->route('admin.users.edit', ['id' => $id])
+      ->withInput($request->except('_token'));
+  }
 }
