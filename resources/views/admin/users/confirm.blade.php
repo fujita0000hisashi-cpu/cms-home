@@ -5,42 +5,64 @@
 <section class="confirm">
   <div class="contactMainBox">
     <div class="dataContentItem">
-      <p class="dataContentItemP">名前:{{ $validated['name'] }}</p>
+      <p class="dataContentItemP">名前:{{ $inputs['name'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">フリガナ:{{ $validated['name_kana'] }}</p>
+      <p class="dataContentItemP">フリガナ:{{ $inputs['name_kana'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">メールアドレス:{{ $validated['mail'] }}</p>
+      <p class="dataContentItemP">メールアドレス:{{ $inputs['email'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">パスワード:{{ $validated['password'] }}</p>
+      <p class="dataContentItemP">パスワード:{{ $inputs['password'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">電話番号:{{ $validated['phone'] }}</p>
+      <p class="dataContentItemP">電話番号:{{ $inputs['phone'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">郵便番号:{{ $validated['postcode'] }}</p>
+      <p class="dataContentItemP">郵便番号:{{ $inputs['zipcode'] }}</p>
     </div>
     <div class="dataContentItem">
       <p class="dataContentItemP">都道府県:{{ $selectedPrefecture }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">市町村:{{ $validated['city'] }}</p>
+      <p class="dataContentItemP">市町村:{{ $inputs['city'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">番地・アパート名:{{ $validated['address_line1'] }}</p>
+      <p class="dataContentItemP">番地・アパート名:{{ $inputs['address'] }}</p>
     </div>
     <div class="dataContentItem">
-      <p class="dataContentItemP">備考欄:{{ $validated['memo'] }}</p>
+      <p class="dataContentItemP">備考欄:{{ $inputs['remarks'] }}</p>
     </div>
-    <form action="{{ route('admin.users.send') }}" method="POST">
+    @if(($inputs["mode"] ?? '') === "create")
+      <form action="{{ route('admin.users.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        @foreach ($inputs as $key => $value)
+          <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+        @endforeach
+        <button type="submit" class="submitButton">登録する</button>
+      </form>
+    @elseif(($inputs["mode"] ?? '') === "edit")
+      <form action="{{ route('admin.users.update', ['id' => $inputs['user_id']]) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        @foreach ($inputs as $key => $value)
+          <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+        @endforeach
+        <button type="submit" class="submitButton">更新する</button>
+      </form>
+    @else
+      <p style="color: red;">modeが不正です。お手数ですが、入力画面からやり直しをお願いいたします。</p>
+    @endif
+
+    <form action="{{ route('admin.users.back') }}" method="POST">
       @csrf
-      <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-      @foreach ($validated as $key => $value)
+      @foreach ($inputs as $key => $value)
+        @continue(in_array($key, ['password_confirmation'], true))
         <input type="hidden" name="{{ $key }}" value="{{ $value }}">
       @endforeach
-      <button type="submit" class="submitButton">送信する</button>
     </form>
     <button type="button" class="submitButton" onclick="history.back()">戻る</button>
   </div>

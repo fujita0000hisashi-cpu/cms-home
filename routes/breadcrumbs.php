@@ -18,6 +18,11 @@ Breadcrumbs::for('admin.users.create', function (BreadcrumbTrail $trail, $title)
   $trail->push($title, route('admin.users.create'));
 });
 
+Breadcrumbs::for('admin.users.edit', function (BreadcrumbTrail $trail, $title, $user) {
+  $trail->parent('admin.users');
+  $trail->push($title, route('admin.users.edit', ['id' => $user->id]));
+});
+
 
 Breadcrumbs::for('admin.contact', function (BreadcrumbTrail $trail) {
   $trail->parent('admin');

@@ -20,7 +20,7 @@
                 <a href="/admin"><i class="fa-solid fa-house-chimney"></i>HOME</a>
             </li>
             <li class="{{ request()->routeIs('admin.users*') ? $active : $normal }}">
-                <a href="/users"><i class="fa-solid fa-envelopes-bulk"></i>アカウント一覧</a>
+                <a href="/admin/users"><i class="fa-solid fa-envelopes-bulk"></i>アカウント一覧</a>
             </li>
             <li class="{{ request()->routeIs('admin.contact.*') ? $active : $normal }}">
                 <a href="/admin/contact"><i class="fa-solid fa-envelopes-bulk"></i>お問い合わせ一覧</a>

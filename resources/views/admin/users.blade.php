@@ -7,7 +7,7 @@
     <div class="contentsArea__header">
         <h2 class="contentsArea__header__title">{{$title}}</h2>
         <ul class="contentsArea__header__btnArea">
-            <li><a href="/users/create">新規登録</a></li>
+            <li><a href="/admin/users/create">新規登録</a></li>
         </ul>
     </div>
     <div class="contentsArea__content">
@@ -28,7 +28,7 @@
                     @foreach($users as $user)
                     <tr>
                         
-                        <td><a href="#" class="tableCreateLink">編集</a></td>
+                        <td><a href="users/{{ $user->id }}/edit" class="tableCreateLink">編集</a></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
