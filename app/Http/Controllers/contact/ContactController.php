@@ -39,6 +39,8 @@ class ContactController extends Controller
     $contact->sex      = $request->sex;
     $contact->job      = $request->job;    
     $contact->contact  = $request->contact;
+		$contact->status  = '未対応';
+		$contact->memo    = '';
     $contact->save();
 
     return view('contact.send', ['contact' => $contact]);
